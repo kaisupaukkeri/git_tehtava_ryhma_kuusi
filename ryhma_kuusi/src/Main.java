@@ -5,7 +5,10 @@ public class Main {
 		System.out.println("Hello group six!");
 		
 		//testing constructors
-		Car car = new Car("Lada", "Samara", 30);
+		Car car1 = new Car("Kia", "Rio", 2);
+		car1.accelerate();
+		car1.brake();
+		car1.printData();
 	}
 
 }// Main class ends
@@ -22,7 +25,6 @@ class Car {
 	    brand = "";
 	    model = "";
 	    amountOfFuel = 0;
-	    printData();
 	}
 	
 	//Parameterized constructor
@@ -31,16 +33,19 @@ class Car {
 	    brand = b;
 	    model = m;
 	    amountOfFuel = f;
-	    printData();
 	}
 	
 	//Methods
-	brake() {
+	public void brake() {
 		//Code here
+		System.out.println("Car is breaking");
 	}
 	
-	accelerate() {
-		//Code here
+	public void accelerate() {
+		   if (amountOfFuel > 0) {
+	            System.out.println("Car is accelerating");
+	            amountOfFuel--;
+	        } 
 	}
 	
 	public void printData() {
