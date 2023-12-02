@@ -10,11 +10,11 @@ public class Main {
 
 }// Main class ends
 
-Class Car {
+class Car {
 	//Atributes
 	String brand;
 	String model;
-	int amountOfFuel
+	int amountOfFuel;
 	
 	//Default constructor
 	Car() 
@@ -43,7 +43,10 @@ Class Car {
 		//Code here
 	}
 	
-	printData {
+	public void printData() {
+		System.out.println("Brand: " + brand + ".");
+		System.out.println("Model: " + model + ".");
+		System.out.println("Fuel: " + amountOfFuel + " litres.");
 		//Code here
 		//Prints Car class data
 	}
