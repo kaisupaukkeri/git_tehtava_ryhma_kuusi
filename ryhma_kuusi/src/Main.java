@@ -1,7 +1,9 @@
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
 		System.out.println("Hello group six!");
 		
 		//testing constructors
@@ -9,6 +11,28 @@ public class Main {
 		car1.accelerate();
 		car1.brake();
 		car1.printData();
+	
+		
+		// Create new object
+		Car car = new Car("Toyota", "RAV4", 40);
+		
+		String answer = "";
+		
+		// asking for user what to do
+		do {
+			System.out.println("a=accelerate b=break x=exit");
+			answer = in.nextLine();
+			if (answer.equals("a")) {
+				car.accelerate();
+			}
+			else if (answer.equals("b")) {
+				car.brake();
+			}
+			else if (answer.equals("x")) {
+				break;
+			}
+		
+		} while (!(answer.equals("x")));
 	}
 
 }// Main class ends
