@@ -22,13 +22,19 @@ public class Main {
 		do {
 			System.out.println("a=accelerate b=break x=exit");
 			answer = in.nextLine();
-			if (answer.equals("a")) {
+			if (answer.equalsIgnoreCase("a")) {
 				car.accelerate();
 			}
-			else if (answer.equals("b")) {
+			else if (answer.equalsIgnoreCase("b")) {
 				car.brake();
 			}
-			else if (answer.equals("x")) {
+			else if (answer.equalsIgnoreCase("f")) {
+				System.out.println("How many litres do you want to refuel?");
+				int refuelAmount = in.nextInt();
+				in.nextLine(); //Without this, the app prints the instructions twice after refueling
+				car.refuel(refuelAmount);
+			}
+			else if (answer.equalsIgnoreCase("x")) {
 				break;
 			}
 		
@@ -70,7 +76,19 @@ class Car {
 	            System.out.println("Car is accelerating");
 	            amountOfFuel--;
 	        } 
+	        else
+	        {
+	        	System.out.println("You are out of fuel. Enter f to refuel.");
+	        }
 	}
+	//If the car runs out of fuel, they can refuel it 
+    public void refuel(int refuel) {
+    	System.out.println("Fuel in the tank: " + amountOfFuel);
+    	System.out.println("Refuel: " + refuel);
+    	amountOfFuel = amountOfFuel + refuel;
+    	System.out.println("Fuel in the tank after the refuel: " + amountOfFuel);
+    	System.out.println();
+    }
 	
 	public void printData() {
 		System.out.println("Brand: " + brand + ".");
