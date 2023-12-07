@@ -1,11 +1,38 @@
+import java.util.Scanner;
 
 public class Main {
 
 	public static void main(String[] args) {
+		Scanner in = new Scanner(System.in);
 		System.out.println("Hello group six!");
 		
 		//testing constructors
-		Car car = new Car("Lada", "Samara", 30);
+		Car car1 = new Car("Kia", "Rio", 2);
+		car1.accelerate();
+		car1.brake();
+		car1.printData();
+	
+		
+		// Create new object
+		Car car = new Car("Toyota", "RAV4", 40);
+		
+		String answer = "";
+		
+		// asking for user what to do
+		do {
+			System.out.println("a=accelerate b=break x=exit");
+			answer = in.nextLine();
+			if (answer.equals("a")) {
+				car.accelerate();
+			}
+			else if (answer.equals("b")) {
+				car.brake();
+			}
+			else if (answer.equals("x")) {
+				break;
+			}
+		
+		} while (!(answer.equals("x")));
 	}
 
 }// Main class ends
@@ -22,7 +49,6 @@ class Car {
 	    brand = "";
 	    model = "";
 	    amountOfFuel = 0;
-	    printData();
 	}
 	
 	//Parameterized constructor
@@ -31,16 +57,19 @@ class Car {
 	    brand = b;
 	    model = m;
 	    amountOfFuel = f;
-	    printData();
 	}
 	
 	//Methods
-	brake() {
+	public void brake() {
 		//Code here
+		System.out.println("Car is breaking");
 	}
 	
-	accelerate() {
-		//Code here
+	public void accelerate() {
+		   if (amountOfFuel > 0) {
+	            System.out.println("Car is accelerating");
+	            amountOfFuel--;
+	        } 
 	}
 	
 	public void printData() {
