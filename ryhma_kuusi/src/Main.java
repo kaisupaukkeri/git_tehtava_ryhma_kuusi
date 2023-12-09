@@ -67,7 +67,6 @@ class Car {
 	
 	//Methods
 	public void brake() {
-		//Code here
 		System.out.println("Car is breaking");
 	}
 	
