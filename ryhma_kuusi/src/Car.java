@@ -2,7 +2,7 @@
 public class Car extends Vehicle {
 	
 	//Methods used in class that are separated for general use and inherited from Vehicle which inherits it from Functions class
-	Functions valueChecker = new Functions();
+//	Functions valueChecker = new Functions();
     //Attributes inherited from abstract Vehicle class
 	//Default constructor
 	
@@ -40,9 +40,16 @@ public class Car extends Vehicle {
 	}
 	
 	///Mandatory methods inherited from Vehicle
+	//To set parameters from list collected from user input
+	public void setParameters(String[] parameters) {
+		this.brand = parameters[0];
+		this.model = parameters[1];
+		this.amountOfFuel = Integer.parseInt(parameters[2]);
+	}
+	 
 	public void brake() {
 		//To check if car has already stopped
-		isStopped = valueChecker.isMinValue(speed);
+		isStopped = Functions.isMinValue(speed);
 		
 			if (isStopped == false) { 
 				System.out.println("Car is braking");
@@ -50,19 +57,20 @@ public class Car extends Vehicle {
 			}
 			else  {
 				System.out.println("Car is reversing");
+				amountOfFuel --;
 			}
 	}
 	
 	public void accelerate() {
 		//To check if max speed is already achieved
-		isMaxSpeed = valueChecker.isMaxValue(maxSpeed,speed);
+		isMaxSpeed = Functions.isMaxValue(maxSpeed,speed);
 		
 			if (isMaxSpeed == false && amountOfFuel > 0) {
 	            System.out.println("Car is accelerating");
 	            amountOfFuel--;
 	            speed ++;
 			}
-			else if (isMaxSpeed == false && amountOfFuel > 0) {
+			else if (isMaxSpeed == false && amountOfFuel == 0) {
 		        System.out.println("You are out of fuel. Enter f to refuel.");
 		        
 			} else {
@@ -88,10 +96,10 @@ public class Car extends Vehicle {
 	}
 	public void setMaxSpeed(){
 		System.out.println("Give new max speed.");
-		maxSpeed = valueChecker.getInputValue();
+		maxSpeed = Functions.getInputValue();
 	}
 	
-	//Class specific method to park by pulling hand brake
+	//Park method to park by pulling hand brake
 	public void  park() {
 		if (speed == 0) {
 			System.out.println("You have pulled the hand brake and parked the car");

@@ -10,6 +10,9 @@ abstract class Vehicle extends Functions {
 	protected boolean isStopped;
 	
 	//Must have methods for any class inheriting this class
+	//To set parameters with user input
+    // ... (no changes to this class)
+    abstract void setParameters(String[] parameters);
 	//Basic functionalities of any vehicle
 	abstract void accelerate();
 	abstract void brake();
@@ -17,4 +20,5 @@ abstract class Vehicle extends Functions {
 	abstract void setMaxSpeed();
 	//If the vehicle runs out of fuel, they can refuel it
 	abstract void refuel(int fuelamount);
+	abstract void  park();
 }

@@ -1,9 +1,10 @@
 import java.util.Scanner;
 public class Functions {
 	
-	//To check if values meets max or tries to over max value
-	
-	public boolean isMaxValue (int max, int compare) {
+	//All methods are owned by this class so there is no need to create objects in classes that use these methods.
+	//all of these methods can be used by Functions.(choose your method)();
+	//To check if value equals max value 
+	static boolean isMaxValue (int max, int compare) {
 		boolean answer;
 		
 		int maxValue = max;
@@ -14,12 +15,10 @@ public class Functions {
 		else {
 			answer = false;
 		}
-		
-		return answer;
-		
+		return answer;	
 	}
-	
-	public boolean isMinValue (int compare) {
+	//To check if value equals minimum value
+	static boolean isMinValue (int compare) {
 		boolean answer;
 		if (compare > 0) {
 			answer = false;
@@ -30,11 +29,18 @@ public class Functions {
 		return answer;
 	}
 	//Used to read value from user input and set it as new value
-	public int getInputValue() {
+	static int getInputValue() {
 		Scanner in = new Scanner(System.in);
 		String input = in.nextLine();
 		int value = Integer.parseInt(input);
 		return value;
+	}
+	
+	
+	static String getInputString() {
+		Scanner in = new Scanner(System.in);
+		String answer = in.nextLine();
+		return answer;
 	}
 }
 
