@@ -1,5 +1,5 @@
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         System.out.println("Hello group six!");
         String answer = "";
         Vehicle chosenVehicle = null;
@@ -15,9 +15,11 @@ public class Main {
             }
             else if (answer.equalsIgnoreCase("c") || answer.equalsIgnoreCase("b")) {
                 if (answer.equalsIgnoreCase("c")) {
+                	Animations.car();
                     System.out.println("You Step into a car that is standing still in the parking lot.");
                     chosenVehicle = new Car();
                 } else {
+                	Animations.boat();
                     System.out.println("You step into a boat that is standing still in marina.");
                     chosenVehicle = new Boat();
                 }
@@ -46,6 +48,7 @@ public class Main {
                 } else if (answer.equalsIgnoreCase("f")) {
                     System.out.println("How many litres do you want to refuel?");
                     int refuelAmount = Functions.getInputValue();
+                    Animations.fueling();
                     chosenVehicle.refuel(refuelAmount);
                 } else if (answer.equalsIgnoreCase("p")) {
                     chosenVehicle.park();
